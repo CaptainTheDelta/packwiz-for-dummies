@@ -11,6 +11,11 @@ Mais comment ?
 ### Côté experimenté :
 1. en sélectionnant une liste de mods disponibles sur [Modrinth](https://modrinth.com/discover/mods) sous la forme suivante :
 ```
+author=CaptainTheDelta
+mc_version=1.21.11
+name=test
+version=0.0.2
+
 # Minimum
 modmenu
 no-chat-reports
@@ -41,7 +46,7 @@ reeses-sodium-options
 - [ ] Gestion modpack pour serveur
 - [ ] Ajouter de la capture d'erreurs ?
 - [ ] hash pour modpacks identiques
-- [ ] infos modpack dans la liste de mods (auteur, mc_version, etc)
+- [x] infos modpack dans la liste de mods (auteur, mc_version, etc)
 - [ ] URL personnalisées
 - [ ] multiples listes de mods ?
 - [ ] outil d'aide à la création de liste

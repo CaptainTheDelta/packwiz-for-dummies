@@ -4,11 +4,16 @@ import json
 
 packwiz_bin = "/usr/local/bin/packwiz"
 
-def get_categories(path):
+def read_modlist(path):
     with open(path, 'r') as f:
-        data = f.read().split("#")[1:]
+        data = f.read().split("#")
+        infos = {}
+        for line in map(str.strip, filter(lambda t: t != "", data[0].splitlines())):
+            k,v = line.split('=')
+            infos[k] = v
+
         categories = []
-        for chunk in data:
+        for chunk in data[1:]:
             lines = map(str.strip, filter(lambda t: t != "", chunk.splitlines()))
             cat = next(lines)
             categories.append({
@@ -16,7 +21,7 @@ def get_categories(path):
                 "mods": list(lines),
                 }
             )
-    return categories
+    return infos,categories
 
 def get_modrinth_infos(mods, mc_version):
     response = requests.get(
